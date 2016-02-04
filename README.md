@@ -17,12 +17,14 @@ And this hammerdb package is intended for an x86_64 system.
 ## Installation
 
 Build RPM using Vagrant
+
 1. The repo is cloned into a local sandbox
 2. Run "vagrant up" to build the VM.
 3. Run "vagrant ssh" to connect to VM.
 4. Run "rpmbuild -ba SPECS/hammerdb.spec" to build the hammerdb rpm package.
 
 Build RPM on server
+
 1. Once repo is cloned, run "sh ./bootstrap.sh"
 2. cd to ~/rpmbuild 
 3. Run "rpmbuild -ba /SPECS/hammerdb.spec"
@@ -64,4 +66,5 @@ For general instructions on _how_ to contribute, please refer to [CONTRIBUTING](
 ## Credits and references
 
 See below links for more information and community support.
+
     http://hammerora.sourceforge.net/document.html
