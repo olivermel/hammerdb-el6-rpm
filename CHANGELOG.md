@@ -2,7 +2,7 @@ All notable changes to this project will be documented in this file.
 We follow the [Semantic Versioning 2.0.0](http://semver.org/) format.
 
 
-## hammerdb-2.19 - 2016-01-19
+## hammerdb-2.19 => 2016-01-19
 
 
 ## Added
