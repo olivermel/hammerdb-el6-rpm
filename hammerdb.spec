@@ -28,7 +28,6 @@ HammerDB is an open source database load testing and benchmarking tool for Oracl
 # Build requirements
 #####################
 BuildRoot: %(mktemp -ud %{_tmppath}/build/%{name}-%{version}-%{release}-XXXXXX)
-#BuildRequires: postgresql94-devel, postgresql94l
 
 
 ########################################################
@@ -38,10 +37,10 @@ BuildRoot: %(mktemp -ud %{_tmppath}/build/%{name}-%{version}-%{release}-XXXXXX)
 # -n defines the name of the directory
 #######################################################
 
-%prep
+###%prep
 
 #%setup -q -n %{name}-%{version}
-%setup -n hammerdb-master
+###%setup -n hammerdb-master
 
 ###########################################################
 # BUILD
@@ -50,9 +49,17 @@ BuildRoot: %(mktemp -ud %{_tmppath}/build/%{name}-%{version}-%{release}-XXXXXX)
 # Compiled code is placed in %{buildroot}
 ###########################################################
 
-%build
-CFLAGS="-O3 -Wall -Wno-format-security"
-LDFLAGS="-pthread"
+
+
+%install
+mkdir -p %{buildroot}/usr/local/src
+pushd %{buildroot}/usr/local/src
+wget https://sourceforge.net/projects/hammerora/files/HammerDB/HammerDB-2.19/HammerDB-2.19-Linux-x86-64-Install/download
+echo $PWD
+chmod a+x %{buildroot}/usr/local/src/download
+exec %{buildroot}/usr/local/src/download
+rm %{buildroot}/usr/local/src/download
+
 
 ###########################################################
 # INSTALL
@@ -60,25 +67,15 @@ LDFLAGS="-pthread"
 # in the %{buildroot} folder in preparation for packaging.
 ###########################################################
 
-echo $PWD
-
-#%%configure
-
-
-#make %{?_smp_mflags}
-make USE_PGXS=1
-
-
-%install
-%make_install
-
-
-
-
+%clean
+[ -d "%{buildroot}" -a "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
 
 %files
+%defattr(-,root,root,-)
 
+/opt/HammerDB-2.19
+/usr/local/src/download
 
 %doc
 
