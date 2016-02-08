@@ -15,6 +15,7 @@ Build RPM on server
 3. Run "rpmbuild -ba /SPECS/hammerdb.spec"
 
 Installing the RPM 
+
 Install the built RPM by running "sudo yum install RPMS/x86_64/hammerdb-2.19.el6.x86_64.rpm"
 
 
