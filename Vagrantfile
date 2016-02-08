@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
       hammerdb_config.ssh.forward_agent = true
       hammerdb_config.ssh.forward_x11 = true
       end 
-      hammerdb_config.vm.provision :shell, path: "bootstrap-hammerdb.sh", privileged: false
+      hammerdb_config.vm.provision :shell, path: "bootstrap.sh", privileged: false
   end 
 
 end
