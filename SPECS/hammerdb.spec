@@ -86,11 +86,7 @@ rm %{buildroot}/usr/local/src/download
 %files
 %defattr(-,root,root,-)
 
-<<<<<<< HEAD
-#/opt/HammerDB-2.19
-=======
 /opt/HammerDB-2.19
->>>>>>> 627fd3786146c8c0bcc61e0c658900c8ef60abcb
 /usr/local/src/download
 
 %doc
