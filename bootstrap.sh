@@ -1,5 +1,20 @@
 #!/usr/bin/env bash
 
+<<<<<<< HEAD
+=======
+sudo yum -y groupinstall 'Development Tools'
+sudo yum -y install java-1.7.1*
+sudo yum -y install vim
+sudo yum -y install libselinux*
+sudo yum -y install yum localinstall http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-centos94-9.4-1.noarch.rpm
+sudo yum -y install postgresql9*
+sudo yum -y install tree
+sudo yum -y install xclock
+sudo yum -y install xorg-x11*
+sudo yum -y groupinstall 'X Window System'
+sudo yum -y install libXScrnSaver-1.2.2-2.el6.x86_64
+
+>>>>>>> 627fd3786146c8c0bcc61e0c658900c8ef60abcb
 SCRIPT=$(readlink -f "$0")
 SCRIPTPATH=$(dirname "$SCRIPT")
 
