@@ -7,7 +7,7 @@
 # Set metadata
 ###############
 
-Name:    hammerdb
+Name:    hammerdb%{suffix}
 Version: %{_version}
 Release: 1%{?dist}
 Summary: An open source database load testing and benchmarking tool for Oracle, SQL, DB2, TimesTen, PostgreSQL and more.
@@ -15,9 +15,10 @@ Summary: An open source database load testing and benchmarking tool for Oracle, 
 Group:   Development/Tools
 License: GNU General Public License
 URL:     https://sourceforge.net
-Source:  http://sourceforge.net/projects/hammerora/files/HammerDB/HammerDB-2.19/HammerDB-2.19-Linux-x86-64-Install/download
-Obsoletes: hammerdb <= 2.19
-Provides: hammerdb = 2.19
+Source:  https://sourceforge.net/projects/hammerora/files/HammerDB/HammerDB-2.19/HammerDB-2.19-Linux-x86-64-Install/download 
+Obsoletes: hammerdb%{suffix} <= 2.19
+Provides: hammerdb%{suffix} = 2.19
+Requires: mysql-devel, ibm-data-db2
 
 %description
 
@@ -52,6 +53,7 @@ BuildRoot: %(mktemp -ud %{_tmppath}/build/%{name}-%{version}-%{release}-XXXXXX)
 
 
 %install
+export LD_LIBRARY_PATH=/usr/lib64
 mkdir -p %{buildroot}/usr/local/src
 pushd %{buildroot}/usr/local/src
 wget https://sourceforge.net/projects/hammerora/files/HammerDB/HammerDB-2.19/HammerDB-2.19-Linux-x86-64-Install/download
@@ -74,7 +76,7 @@ rm %{buildroot}/usr/local/src/download
 %files
 %defattr(-,root,root,-)
 
-/opt/HammerDB-2.19
+#/opt/HammerDB-2.19
 /usr/local/src/download
 
 %doc
